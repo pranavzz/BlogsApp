@@ -6,7 +6,9 @@ router.get("/",(req,res)=>{
 })
 
 // import controller
+// const {commentController} = require("../controllers/commentController");
 
 // mapping controller
+// router.post("/createTodo",commentController);
 
 module.exports = router;
