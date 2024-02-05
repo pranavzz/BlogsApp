@@ -11,6 +11,11 @@ const  postSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    user:{
+        // the on who posted
+        type:String,
+        required:true,
+    },
     likes:[
         {
             // array
