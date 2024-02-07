@@ -23,7 +23,6 @@ exports.commentController = async(req,res)=>{
         ).populate("comment") // populate the comment array with comment document otherwise comment id only will be added
         .exec();
 
-
         // const updatedPost = await Post.findByIdAndUpdate(post,${push})
         res.status(200).json({
             success:true,
@@ -39,7 +38,6 @@ exports.commentController = async(req,res)=>{
         .json({
             data:"Internal server error",
         });
-
 
     }
 
