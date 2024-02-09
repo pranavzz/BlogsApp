@@ -42,3 +42,30 @@ exports.likeController = async(req,res)=>{
     }
 
 }
+
+exports.unlikePost = async(req,res)=>{
+    try{
+        
+        const {post,like} = req.body;
+        const deletedLike = await Like.findOneAndDelete({_id:like});
+        // await Like.findByIdAndDelete(like);
+        // like for wich post_id and like_id mathcing 
+
+        //update post collection
+        const updatedpost = await Post.findByIdAndUpdate(post,{$pull:{likes:deletedLike._id}},
+        {new:true}).populate("likes").exec();
+
+            res.json({
+                data:updatedpost,
+                message:"Deleted Successfully"
+            })
+    }
+    catch{
+        return res.status(400)
+        .json({
+            error:"Internal server error"
+        })
+    }
+}
+
+

@@ -40,5 +40,4 @@ exports.commentController = async(req,res)=>{
         });
 
     }
-
 }

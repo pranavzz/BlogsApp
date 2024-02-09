@@ -1,5 +1,4 @@
 const Post = require("../models/postModel");
-
 exports.postController = async(req,res)=>{
     try{
         // fetch data from request body
@@ -33,7 +32,7 @@ exports.postController = async(req,res)=>{
 
 exports.getPosts = async(req,res)=>{
     try{
-        const posts = await Post.find().populate("comment").exec();
+        const posts = await Post.find().populate("comment").populate("likes").exec();
         // also testing for likes after adding like controller
         res.status(200)
         .json({
